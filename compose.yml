@@ -10,3 +10,15 @@ services:
       xpack.security.enabled: false
       ELASTICSEARCH_USERNAME: elastic
       ELASTICSEARCH_PASSWORD: password
+  creator-search-nextjs:
+    build:
+      context: .
+      dockerfile: docker/nextjs/Dockerfile
+    ports:
+      - 3000:3000
+    environment:
+      NEXT_PUBLIC_ELASTICSEARCH_URL: http://elasticsearch:9200
+      NEXT_PUBLIC_ELASTICSEARCH_USERNAME: elastic
+      NEXT_PUBLIC_ELASTICSEARCH_PASSWORD: password
+    depends_on:
+      - elasticsearch
