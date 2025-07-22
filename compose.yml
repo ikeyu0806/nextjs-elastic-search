@@ -20,5 +20,11 @@ services:
       NEXT_PUBLIC_ELASTICSEARCH_URL: http://elasticsearch:9200
       NEXT_PUBLIC_ELASTICSEARCH_USERNAME: elastic
       NEXT_PUBLIC_ELASTICSEARCH_PASSWORD: password
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
     depends_on:
       - elasticsearch
+
+volumes:
+  node_modules:
