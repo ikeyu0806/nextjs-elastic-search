@@ -1,8 +1,14 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
-import { Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle } from "flowbite-react";
-import Link from "next/link";
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarCollapse,
+  NavbarLink,
+  NavbarToggle,
+} from 'flowbite-react'
+import Link from 'next/link'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -29,21 +35,23 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-            <Navbar fluid rounded>
-      <NavbarBrand as={Link} href="https://flowbite-react.com">
-        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">ElasticSearchで飲食店検索</span>
-      </NavbarBrand>
-      <NavbarToggle />
-      <NavbarCollapse>
-        <NavbarLink as={Link} href="/" active>
-          飲食店検索
-        </NavbarLink>
-        <NavbarLink as={Link} href="/register_restrant">
-          飲食店登録
-        </NavbarLink>
-        <NavbarLink href="#">飲食店削除</NavbarLink>
-      </NavbarCollapse>
-    </Navbar>
+        <Navbar fluid rounded>
+          <NavbarBrand as={Link} href="https://flowbite-react.com">
+            <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+              ElasticSearchで飲食店検索
+            </span>
+          </NavbarBrand>
+          <NavbarToggle />
+          <NavbarCollapse>
+            <NavbarLink as={Link} href="/" active>
+              飲食店検索
+            </NavbarLink>
+            <NavbarLink as={Link} href="/register_restrant">
+              飲食店登録
+            </NavbarLink>
+            <NavbarLink href="#">飲食店削除</NavbarLink>
+          </NavbarCollapse>
+        </Navbar>
         {children}
       </body>
     </html>
