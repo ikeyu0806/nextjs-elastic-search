@@ -8,3 +8,8 @@ Next.jsのフロントエンドからElasticSearchを操作します。
 docker compose build
 docker compose up
 ```
+
+seed登録
+```
+npx ts-node scripts/seed.ts
+```
