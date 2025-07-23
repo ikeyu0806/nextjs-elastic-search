@@ -1,13 +1,4 @@
-FROM node:23-bullseye-slim
+FROM docker.elastic.co/elasticsearch/elasticsearch:9.0.3
 
-WORKDIR /app
-
-EXPOSE 3000
-
-COPY . /app
-
-RUN npm i
-
-# RUN npm run build
-
-CMD ["npm", "run", "dev"]
+RUN elasticsearch-plugin install analysis-icu
+RUN elasticsearch-plugin install analysis-kuromoji
