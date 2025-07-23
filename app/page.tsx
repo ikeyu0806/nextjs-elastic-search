@@ -1,19 +1,12 @@
 'use client'
 
+import React, { useEffect } from 'react'
 import { Card } from 'flowbite-react'
 import useSWR from 'swr'
 import SearchWordForm from './components/searchWordForm'
 import { useAtomValue } from 'jotai'
 import { searchWord as searchWordAtom } from './atoms/searchWordAtoms'
-
-type Restaurant = {
-  id: string
-  name: string
-  category: string
-  address: string
-  rating: number
-  [key: string]: any
-}
+import { Restaurant } from './types/Restaurant'
 
 const fetcher = async (url: string) => {
   try {
