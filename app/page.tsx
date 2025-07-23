@@ -3,6 +3,8 @@
 import { Card } from 'flowbite-react'
 import useSWR from 'swr'
 import SearchWordForm from './components/searchWordForm'
+import { useAtomValue } from 'jotai'
+import { searchWord as searchWordAtom } from './atoms/searchWordAtoms'
 
 type Restaurant = {
   id: string
@@ -26,11 +28,12 @@ const fetcher = async (url: string) => {
 }
 
 export default function Home() {
+  const searchWord = useAtomValue(searchWordAtom)
   const {
     data: restaurants,
     error,
     isLoading,
-  } = useSWR<Restaurant[]>('/api/restaurants', fetcher)
+  } = useSWR<Restaurant[]>(`/api/restaurants?q=${searchWord}`, fetcher)
 
   {
     isLoading && <p>読み込み中...</p>
