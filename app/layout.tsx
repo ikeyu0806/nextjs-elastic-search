@@ -46,7 +46,7 @@ export default function RootLayout({
             <NavbarLink as={Link} href="/" active>
               飲食店検索
             </NavbarLink>
-            <NavbarLink as={Link} href="/register_restrant">
+            <NavbarLink as={Link} href="/register_ restaurant">
               飲食店登録
             </NavbarLink>
             <NavbarLink href="#">飲食店削除</NavbarLink>
