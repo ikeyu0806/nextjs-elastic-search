@@ -67,9 +67,9 @@ export default function Home() {
                 {restaurant.name}
               </h5>
               <p className="font-normal">
+                {restaurant.description} <br />
                 カテゴリー: {restaurant.category} <br />
-                住所: {restaurant.address} <br />
-                評価: {restaurant.rating}
+                住所: {restaurant.address}
               </p>
             </Card>
           ))}
