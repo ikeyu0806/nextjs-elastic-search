@@ -2,6 +2,8 @@
 
 import { Button, Card, Label, TextInput } from 'flowbite-react'
 import useSWR from 'swr'
+import { useAtom } from 'jotai'
+import { searchWord } from './atoms/searchWordAtoms'
 
 type Restaurant = {
   id: string
@@ -25,6 +27,7 @@ const fetcher = async (url: string) => {
 }
 
 export default function Home() {
+  const [searchTerm, setSearchTerm] = useAtom(searchWord)
   const {
     data: restaurants,
     error,
@@ -48,6 +51,8 @@ export default function Home() {
           id="searchWord"
           placeholder="焼肉, 寿司, ラーメンなど"
           required
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
         <div className="mt-4">
           <Button type="submit">検索</Button>
