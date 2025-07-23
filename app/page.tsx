@@ -36,22 +36,22 @@ export default function Home() {
     isLoading && <p>読み込み中...</p>
   }
   {
-    error && <p className="text-red-500">取得に失敗しました</p>
+    error && <p className='text-red-500'>取得に失敗しました</p>
   }
 
   return (
-    <div className="grid grid-cols-12 p-4">
-      <div className="col-span-4">
+    <div className='grid grid-cols-12 p-4'>
+      <div className='col-span-4'>
         <SearchWordForm />
       </div>
-      <div className="col-span-8 ml-4 mt-8">
+      <div className='col-span-8 ml-4 mt-8'>
         {restaurants &&
           restaurants.map((restaurant) => (
-            <Card key={restaurant.id} className="mb-4">
-              <h5 className="text-2xl font-bold tracking-tight">
+            <Card key={restaurant.id} className='mb-4'>
+              <h5 className='text-2xl font-bold tracking-tight'>
                 {restaurant.name}
               </h5>
-              <p className="font-normal">
+              <p className='font-normal'>
                 {restaurant.description} <br />
                 カテゴリー: {restaurant.category} <br />
                 住所: {restaurant.address}

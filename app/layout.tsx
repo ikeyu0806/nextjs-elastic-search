@@ -31,25 +31,25 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Navbar fluid rounded>
-          <NavbarBrand as={Link} href="https://flowbite-react.com">
-            <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+          <NavbarBrand as={Link} href='https://flowbite-react.com'>
+            <span className='self-center whitespace-nowrap text-xl font-semibold dark:text-white'>
               ElasticSearchで飲食店検索
             </span>
           </NavbarBrand>
           <NavbarToggle />
           <NavbarCollapse>
-            <NavbarLink as={Link} href="/" active>
+            <NavbarLink as={Link} href='/' active>
               飲食店検索
             </NavbarLink>
-            <NavbarLink as={Link} href="/register_ restaurant">
+            <NavbarLink as={Link} href='/register_ restaurant'>
               飲食店登録
             </NavbarLink>
-            <NavbarLink href="#">飲食店削除</NavbarLink>
+            <NavbarLink href='#'>飲食店削除</NavbarLink>
           </NavbarCollapse>
         </Navbar>
         {children}

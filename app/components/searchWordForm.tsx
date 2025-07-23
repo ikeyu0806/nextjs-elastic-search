@@ -7,18 +7,18 @@ export default function SearchWordForm() {
 
   return (
     <>
-      <div className="mb-2 block">
-        <Label htmlFor="searchWord">検索ワード</Label>
+      <div className='mb-2 block'>
+        <Label htmlFor='searchWord'>検索ワード</Label>
       </div>
       <TextInput
-        id="searchWord"
-        placeholder="焼肉, 寿司, ラーメンなど"
+        id='searchWord'
+        placeholder='焼肉, 寿司, ラーメンなど'
         required
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <div className="mt-4">
-        <Button type="submit">検索</Button>
+      <div className='mt-4'>
+        <Button type='submit'>検索</Button>
       </div>
     </>
   )
