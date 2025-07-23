@@ -1,9 +1,8 @@
 'use client'
 
-import { Button, Card, Label, TextInput } from 'flowbite-react'
+import { Card } from 'flowbite-react'
 import useSWR from 'swr'
-import { useAtom } from 'jotai'
-import { searchWord } from './atoms/searchWordAtoms'
+import SearchWordForm from './components/searchWordForm'
 
 type Restaurant = {
   id: string
@@ -27,7 +26,6 @@ const fetcher = async (url: string) => {
 }
 
 export default function Home() {
-  const [searchTerm, setSearchTerm] = useAtom(searchWord)
   const {
     data: restaurants,
     error,
@@ -42,21 +40,9 @@ export default function Home() {
   }
 
   return (
-    <form className="grid grid-cols-12 p-4">
+    <div className="grid grid-cols-12 p-4">
       <div className="col-span-4">
-        <div className="mb-2 block">
-          <Label htmlFor="searchWord">検索ワード</Label>
-        </div>
-        <TextInput
-          id="searchWord"
-          placeholder="焼肉, 寿司, ラーメンなど"
-          required
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <div className="mt-4">
-          <Button type="submit">検索</Button>
-        </div>
+        <SearchWordForm />
       </div>
       <div className="col-span-8 ml-4 mt-8">
         {restaurants &&
@@ -73,6 +59,6 @@ export default function Home() {
             </Card>
           ))}
       </div>
-    </form>
+    </div>
   )
 }
