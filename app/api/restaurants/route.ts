@@ -15,6 +15,8 @@ export async function GET() {
       },
     })
 
+    console.log(`🍽 検索結果: ${JSON.stringify(result, null, 2)}`)
+
     const restaurants = result.hits.hits.map((hit) => ({
       id: hit._id,
       ...(hit._source as Record<string, any>),
