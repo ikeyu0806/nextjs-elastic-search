@@ -57,6 +57,22 @@ async function insertSampleData() {
         '立ち食いのうどん店。五反田駅近くにある人気店。',
       address: '東京都品川区西五反田1-6-3',
     },
+    {
+      name: '横浜家系らーめん 五丁目ハウス',
+      category: 'ラーメン',
+      tags: ['予約不可', '家系'],
+      description:
+        '横浜家系ラーメンの人気店',
+      address: '東京都中野区中野5-56-15',
+    },
+    {
+      name: '陸蒸気',
+      category: 'ラーメン',
+      tags: ['予約不可', '家系'],
+      description:
+        '横浜家系ラーメンの人気店',
+      address: '東京都中野区中野5-56-15',
+    },
   ]
 
   for (const doc of sampleData) {
