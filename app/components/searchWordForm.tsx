@@ -1,9 +1,9 @@
 import { Button, Card, Label, TextInput } from 'flowbite-react'
 import { useAtom } from 'jotai'
-import { searchWord } from '../atoms/searchWordAtoms'
+import { searchWordAtom } from '../atoms/searchWordAtoms'
 
 export default function SearchWordForm() {
-  const [searchTerm, setSearchTerm] = useAtom(searchWord)
+  const [searchTerm, setSearchTerm] = useAtom(searchWordAtom)
 
   return (
     <>
