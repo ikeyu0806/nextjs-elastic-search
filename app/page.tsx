@@ -3,11 +3,11 @@
 import React, { useEffect } from 'react'
 import { Card } from 'flowbite-react'
 import useSWR from 'swr'
-import SearchWordForm from './components/searchWordForm'
+import SearchWordForm from '../components/searchWordForm'
 import { useAtomValue } from 'jotai'
-import { searchWordAtom } from './atoms/searchWordAtoms'
-import { Restaurant } from './types/Restaurant'
-import { restaurantListAtom } from './atoms/restaurantAtoms'
+import { searchWordAtom } from '../atoms/searchWordAtoms'
+import { Restaurant } from '../types/Restaurant'
+import { restaurantListAtom } from '../atoms/restaurantAtoms'
 import { useAtom } from 'jotai'
 
 const fetcher = async (url: string) => {
