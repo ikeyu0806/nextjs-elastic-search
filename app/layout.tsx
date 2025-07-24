@@ -43,13 +43,12 @@ export default function RootLayout({
           </NavbarBrand>
           <NavbarToggle />
           <NavbarCollapse>
-            <NavbarLink as={Link} href='/' active>
+            <NavbarLink as={Link} href='/'>
               飲食店検索
             </NavbarLink>
-            <NavbarLink as={Link} href='/register_ restaurant'>
+            <NavbarLink as={Link} href='/restaurants/register'>
               飲食店登録
             </NavbarLink>
-            <NavbarLink href='#'>飲食店削除</NavbarLink>
           </NavbarCollapse>
         </Navbar>
         {children}
