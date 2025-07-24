@@ -1,4 +1,4 @@
-import { TextInput, Button } from 'flowbite-react'
+import { TextInput, Textarea, Button } from 'flowbite-react'
 
 export default function RegisterRestaurant() {
   return (
@@ -9,11 +9,16 @@ export default function RegisterRestaurant() {
         <form>
           <div className='mb-4'>
             <TextInput
-              id='name'
               type='text'
+              id='restaurantName'
               placeholder='レストラン名'
-              required
               className='mb-2'
+            />
+            <Textarea
+              id='description'
+              placeholder='レストランの説明'
+              className='mb-2'
+              rows={8}
             />
             <TextInput
               id='category'
@@ -26,13 +31,6 @@ export default function RegisterRestaurant() {
               id='address'
               type='text'
               placeholder='住所'
-              required
-              className='mb-2'
-            />
-            <TextInput
-              id='rating'
-              type='number'
-              placeholder='評価 (1-5)'
               required
               className='mb-2'
             />
