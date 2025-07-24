@@ -7,7 +7,7 @@ import SearchWordForm from './components/searchWordForm'
 import { useAtomValue } from 'jotai'
 import { searchWord as searchWordAtom } from './atoms/searchWordAtoms'
 import { Restaurant } from './types/Restaurant'
-import { restaurantListAtom } from './atoms/restaurants'
+import { restaurantListAtom } from './atoms/restaurantAtoms'
 import { useAtom } from 'jotai'
 
 const fetcher = async (url: string) => {
