@@ -48,3 +48,29 @@ export async function GET(req: NextRequest) {
     )
   }
 }
+
+export async function POST(req: NextRequest) {
+  const client = new Client({ node: 'http://elasticsearch:9200' })
+
+  try {
+    const data = await req.json()
+
+    if (!Array.isArray(data)) {
+      return NextResponse.json({ message: 'Request body must be an array' }, { status: 400 })
+    }
+
+    const body = data.flatMap((doc) => [{ index: { _index: 'restaurants' } }, doc])
+
+    const response = await client.bulk({ refresh: true, body })
+
+    if (response.errors) {
+      console.error('❌ Bulk insert had errors:', response.items)
+      return NextResponse.json({ message: 'Failed to insert some documents' }, { status: 500 })
+    }
+
+    return NextResponse.json({ message: 'Restaurants inserted successfully' })
+  } catch (error) {
+    console.error('❌ Error inserting restaurants:', error)
+    return NextResponse.json({ message: 'Failed to insert restaurants' }, { status: 500 })
+  }
+}
