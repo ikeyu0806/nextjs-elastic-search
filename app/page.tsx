@@ -7,6 +7,8 @@ import SearchWordForm from './components/searchWordForm'
 import { useAtomValue } from 'jotai'
 import { searchWord as searchWordAtom } from './atoms/searchWordAtoms'
 import { Restaurant } from './types/Restaurant'
+import { restaurantListAtom } from './atoms/restaurants'
+import { useAtom } from 'jotai'
 
 const fetcher = async (url: string) => {
   try {
@@ -22,11 +24,16 @@ const fetcher = async (url: string) => {
 
 export default function Home() {
   const searchWord = useAtomValue(searchWordAtom)
+  const [restaurantList, setRestaurantList] = useAtom(restaurantListAtom)
   const {
     data: restaurants,
     error,
     isLoading,
   } = useSWR<Restaurant[]>(`/api/restaurants?q=${searchWord}`, fetcher)
+
+  useEffect(() => {
+    if (restaurants) setRestaurantList(restaurants)
+  }, [restaurants, setRestaurantList])
 
   {
     isLoading && <p>読み込み中...</p>
@@ -41,8 +48,8 @@ export default function Home() {
         <SearchWordForm />
       </div>
       <div className='col-span-8 ml-4 mt-8'>
-        {restaurants &&
-          restaurants.map((restaurant) => (
+        {restaurantList &&
+          restaurantList.map((restaurant) => (
             <Card key={restaurant.id} className='mb-4'>
               <h5 className='text-2xl font-bold tracking-tight'>
                 {restaurant.name}
