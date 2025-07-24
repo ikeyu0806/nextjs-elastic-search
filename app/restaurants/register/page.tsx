@@ -21,15 +21,17 @@ export default function RegisterRestaurant() {
     }
 
     try {
-      const res = await fetch('/api/restaurants', {
+      const response = await fetch('/api/restaurants', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify([restaurant]), // 複数登録APIに1件でも配列で送る
+        body: JSON.stringify(restaurant),
       })
 
-      if (!res.ok) {
+      if (!response.ok) {
+        throw new Error('送信に失敗しました')
+      }
+
+
+      if (!response.ok) {
         throw new Error('登録に失敗しました')
       }
 

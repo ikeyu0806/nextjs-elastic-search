@@ -55,18 +55,13 @@ export async function POST(req: NextRequest) {
   try {
     const data = await req.json()
 
-    if (!Array.isArray(data)) {
-      return NextResponse.json({ message: 'Request body must be an array' }, { status: 400 })
-    }
+    const response = await client.index({
+      index: 'restaurants',
+      document: data,
+      refresh: true, // すぐに検索に反映させるためにrefreshをtrueに設定
+    })
 
-    const body = data.flatMap((doc) => [{ index: { _index: 'restaurants' } }, doc])
-
-    const response = await client.bulk({ refresh: true, body })
-
-    if (response.errors) {
-      console.error('❌ Bulk insert had errors:', response.items)
-      return NextResponse.json({ message: 'Failed to insert some documents' }, { status: 500 })
-    }
+    console.log('Restaurant inserted:', response)
 
     return NextResponse.json({ message: 'Restaurants inserted successfully' })
   } catch (error) {
