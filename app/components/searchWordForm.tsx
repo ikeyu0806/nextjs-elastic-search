@@ -1,4 +1,4 @@
-import { Button, Card, Label, TextInput } from 'flowbite-react'
+import { Button, Label, TextInput } from 'flowbite-react'
 import { useAtom } from 'jotai'
 import { searchWordAtom } from '../atoms/searchWordAtoms'
 
