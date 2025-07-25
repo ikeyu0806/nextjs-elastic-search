@@ -16,7 +16,7 @@ export async function GET(req: NextRequest) {
       ? {
           multi_match: {
             query: q,
-            fields: ['name^2', 'description'], // name を重み2で優先
+            fields: ['name^3', 'category^2', 'description', 'tags'], // ^3などはフィールドの重み付け
             fuzziness: 'AUTO', // あいまい検索も許可
           },
         }
