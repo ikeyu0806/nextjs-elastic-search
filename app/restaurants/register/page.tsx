@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { TextInput, Textarea, Button } from 'flowbite-react'
+import { Label, TextInput, Textarea, Button } from 'flowbite-react'
 
 export default function RegisterRestaurant() {
   const [name, setName] = useState('')
@@ -53,6 +53,9 @@ export default function RegisterRestaurant() {
         <h1 className='text-3xl font-bold mb-4'>飲食店登録</h1>
         <form onSubmit={handleSubmit}>
           <div className='mb-4'>
+            <Label htmlFor='restaurantName' className='block mb-2'>
+              飲食店名
+            </Label>
             <TextInput
               type='text'
               id='restaurantName'
@@ -61,6 +64,9 @@ export default function RegisterRestaurant() {
               onChange={(e) => setName(e.target.value)}
               className='mb-2'
             />
+            <Label htmlFor='description' className='block mb-2'>
+              説明
+            </Label>
             <Textarea
               id='description'
               placeholder='飲食店の説明'
@@ -69,6 +75,9 @@ export default function RegisterRestaurant() {
               onChange={(e) => setDescription(e.target.value)}
               className='mb-2'
             />
+            <Label htmlFor='category' className='block mb-2'>
+              カテゴリー
+            </Label>
             <TextInput
               id='category'
               type='text'
@@ -78,6 +87,9 @@ export default function RegisterRestaurant() {
               onChange={(e) => setCategory(e.target.value)}
               className='mb-2'
             />
+            <Label htmlFor='address' className='block mb-2'>
+              住所
+            </Label>
             <TextInput
               id='address'
               type='text'
