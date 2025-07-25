@@ -19,7 +19,7 @@ export default function RegisterRestaurant() {
       description,
       category,
       address,
-      // tags: [], // TODO
+      tags,
     }
 
     try {
@@ -42,6 +42,9 @@ export default function RegisterRestaurant() {
       setDescription('')
       setCategory('')
       setAddress('')
+      setTags([])
+      setInputTag('')
+      console.log('登録成功:', await response.json())
     } catch (err) {
       alert('エラーが発生しました')
       console.error(err)
