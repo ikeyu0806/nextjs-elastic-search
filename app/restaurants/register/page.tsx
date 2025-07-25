@@ -7,6 +7,8 @@ export default function RegisterRestaurant() {
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
   const [category, setCategory] = useState('')
+  const [inputTag, setInputTag] = useState('')
+  const [tags, setTags] = useState<string[]>([])
   const [address, setAddress] = useState('')
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -97,14 +99,27 @@ export default function RegisterRestaurant() {
                   type='text'
                   placeholder='タグ'
                   className='mb-2'
+                  value={inputTag}
+                  onChange={(e) => setInputTag(e.target.value)}
                 />
               </div>
               <div className='col-span-3 ml-2'>
-                <Button type='button' className='w-full'>
+                <Button
+                  onClick={() => {
+                    setTags([...tags, inputTag])
+                    setInputTag('')
+                  }}
+                  type='button' className='w-full'>
                   タグ追加
                 </Button>
               </div>
             </div>
+            <Label>タグ一覧</Label>
+              <ul>
+                {tags.map((tag, index) => (
+                  <li key={index}>{tag}</li>
+                ))}
+              </ul>
             <Label htmlFor='address' className='block mb-2'>
               住所
             </Label>
