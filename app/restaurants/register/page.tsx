@@ -87,6 +87,24 @@ export default function RegisterRestaurant() {
               onChange={(e) => setCategory(e.target.value)}
               className='mb-2'
             />
+            <Label htmlFor='tags' className='block mb-2'>
+              タグ
+            </Label>
+            <div className='grid grid-cols-12'>
+              <div className='col-span-9'>
+                <TextInput
+                  id='tags'
+                  type='text'
+                  placeholder='タグ'
+                  className='mb-2'
+                />
+              </div>
+              <div className='col-span-3 ml-2'>
+                <Button type='button' className='w-full'>
+                  タグ追加
+                </Button>
+              </div>
+            </div>
             <Label htmlFor='address' className='block mb-2'>
               住所
             </Label>
