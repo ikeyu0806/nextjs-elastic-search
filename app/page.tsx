@@ -57,6 +57,7 @@ export default function Home() {
               <p className='font-normal'>
                 {restaurant.description} <br />
                 カテゴリー: {restaurant.category} <br />
+                タグ: {restaurant.tags.join(', ')} <br />
                 住所: {restaurant.address}
               </p>
             </Card>
